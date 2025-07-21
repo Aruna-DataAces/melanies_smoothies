@@ -27,7 +27,7 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col("FRUIT
 import requests
 smoothiefroot_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 st.text(smoothiefroot_response.json())
-
+smoothie_fruit_data_frame = st.dataframe(smoothiefroot_response.json(), use_container_width=true)
 ingredients_list = st.multiselect(
     "Choose upto 5 ingredients",
     my_dataframe,
