@@ -41,6 +41,7 @@ ingredients_list = st.multiselect(
 ingredients_string =''
 for each_fruit in ingredients_list:
     ingredients_string+=each_fruit+' '
+    st.subheader(each_fruit + 'Nutrition Information')
     smoothiefroot_response = requests.get("https://fruityvice.com/api/fruit/" + each_fruit)
     # st.text(smoothiefroot_response.json())
     smoothie_fruit_data_frame = st.dataframe(smoothiefroot_response.json(), use_container_width=True)
